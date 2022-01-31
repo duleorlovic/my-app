@@ -1,24 +1,27 @@
-# README
+# MyApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is sample app for demo on TRK.
 
-Things you may want to cover:
+For quick preview you can use docker:
 
-* Ruby version
+```
+git clone git@trk.com:duleorlovic/my-app.git
+cd my-app
+docker up
+```
 
-* System dependencies
+To create from ground up, you can follow this steps.
+First add devise gem, create user model (using devise generator), landing page
+and posts scaffold. We will use this template
+https://github.com/duleorlovic/my-app/blob/main/template.rb
 
-* Configuration
+```
+rails new my-app -m https://raw.githubusercontent.com/duleorlovic/my-app/main/template.rb
+cd my-app
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+When you run the server you can play with the app
+```
+rails s
+firefox http://localhost:3000
+```

@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <% if current_user.present? %>
+      Hi <%= current_user.email %>
+      <%= button_to 'Log Out', destroy_user_session_path, method: :delete, 'data-turbo': false %>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path %>
+      <% User.all.each do |user| %>
+        <%= button_to user.email, login_as_path(user_id: user.id) %>
+      <% end %>
+    <% end %>
+    <div class='alert'>
+      <%= alert %>
+    </div>
+    <div class='notice'>
+      <%= notice %>
+    </div>
+    <%= link_to 'Root', root_path %>
+    <%= link_to 'Posts', posts_path %>
     <%= yield %>
   </body>
 </html>
